@@ -13,7 +13,7 @@ build/
 # TypeScript compilation
 *.js
 *.js.map
-!static/*.js
+!proxy-wrapper.sh
 
 # Environment variables
 .env
@@ -46,6 +46,7 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
+proxy.log
 
 # Runtime data
 pids/
@@ -59,10 +60,6 @@ coverage/
 
 # nyc test coverage
 .nyc_output/
-
-# Cloudflare Workers
-.wrangler/
-wrangler.toml.local
 
 # Temporary folders
 tmp/
@@ -104,14 +101,20 @@ temp/
 *.bak
 *.orig
 
-# MCP specific
+# MCP Proxy specific
 *.lock
 *.pid
-
-# Database files
-*.db
-*.sqlite
-*.sqlite3
+proxy.log*
+/tmp/mcp-*.lock
+/tmp/mcp-*.pid
 
 # Local development
 .local/
+test-output/
+
+# Cloudflare Workers
+.wrangler/
+wrangler.toml.local
+
+# Config backups
+*.backup.proxy_test
